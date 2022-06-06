@@ -1,0 +1,50 @@
+﻿@model CustomerModel
+
+@{
+    ViewData["Title"] = "Usuń klienta";
+}
+
+<h1>Usuń klienta</h1>
+
+<div>
+    <h4>Potwierdź decyzje o usunięciu klienta.</h4>
+    <hr/>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Surename)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Surename)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PESEL)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PESEL)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BirthYear)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BirthYear)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Płeć)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Płeć)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id"/>
+        <input type="submit" value="Usuń" class="btn btn-danger"/> |
+        <a asp-action="Index">Wróć do listy</a>
+    </form>
+</div>

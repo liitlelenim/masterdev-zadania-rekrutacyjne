@@ -1,0 +1,60 @@
+﻿@model Zadanie1.Models.CustomerModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CustomerModel</h4>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surename" class="control-label"></label>
+                <input asp-for="Surename" class="form-control"/>
+                <span asp-validation-for="Surename" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PESEL" class="control-label"></label>
+                <input asp-for="PESEL" class="form-control" id="pesel-input"/>
+                <span asp-validation-for="PESEL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthYear" class="control-label"></label>
+                <input asp-for="BirthYear" class="form-control" readonly="readonly" id="birth-year-input"/>
+                <span asp-validation-for="BirthYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Płeć" class="control-label"></label>
+                <input class="form-control" readonly="readonly" id="plec-placeholder"/>
+                <select asp-for="Płeć" class="form-control" id="plec-input">
+                    <option readonly="readonly"value="1"></option>
+                    <option readonly="readonly" value="0"></option>
+                </select>
+                <span asp-validation-for="Płeć" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Zapisz" class="btn btn-primary"/>
+            </div>
+            <br/>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Wróć do listy</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script defer type="text/javascript" src="~/js/CustomerValidation.js"></script>

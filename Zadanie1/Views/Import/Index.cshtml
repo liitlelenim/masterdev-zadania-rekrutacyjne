@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Import klientów";
+}
+
+@if (ViewData["messageType"] == "success")
+{
+    <div class="alert alert-success" role="alert">
+        @ViewData["message"]
+    </div>
+}
+@if (ViewData["messageType"] == "error")
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewData["message"]
+    </div>
+}
+
+<h1>Import klientów</h1>
+<form enctype="multipart/form-data" method="post" asp-action="Import">
+    <label class="control-label" for="upload-import-file">Wybierz plik:</label>
+    <div class="form-group pd-1 col-md-7">
+        <input name="file" class="form-control" type="file" id="upload-import-file">
+    </div>
+    <label class="control-label" for="select-import-format">Wybierz format:</label>
+    <div class="form-group pd-1 col-sm-2">
+        <select name="format" class="form-select mt-2" id="select-import-format">
+            <option>CSV</option>
+            <option>XLSX</option>
+        </select>
+    </div>
+
+    <button class="btn btn-primary mt-3" type="submit">Importuj</button>
+
+</form>
